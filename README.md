@@ -30,3 +30,4 @@ Table of Contents
   - Expression
   - Coercion
   - const variable
+  - Practice
