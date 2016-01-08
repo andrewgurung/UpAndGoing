@@ -24,3 +24,9 @@ By Kyle Simpson
 
 Table of Contents
 -----------------
+1. Into Programming
+  [/IntoProgramming]
+  - Statement
+  - Expression
+  - Coercion
+  - const variable
