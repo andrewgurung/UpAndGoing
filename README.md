@@ -24,10 +24,13 @@ By Kyle Simpson
 
 Table of Contents
 -----------------
-1. Into Programming
+1. Into Programming <br>
   [/IntoProgramming]
   - Statement
   - Expression
   - Coercion
   - const variable
   - Practice
+
+2. Into Javascript <br>
+  [/IntoJavascript]
