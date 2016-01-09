@@ -34,3 +34,4 @@ Table of Contents
 
 2. Into Javascript <br>
   [/IntoJavascript]
+  - Value and Types
