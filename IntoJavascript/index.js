@@ -47,3 +47,16 @@ console.log(complex_Array[0]); // Tyrion
 console.log(complex_Array[1]); // 8.9
 console.log(complex_Array[2]); // true
 console.log(complex_Array.length); // 3
+
+/* Functions: Subtype of object */
+function goldCoins() {
+	return 100;
+}
+// Functions are subtype of objects
+// So in limited cases, we can have function object properties
+goldCoins.owner = "Lannisters";
+
+console.log(typeof goldCoins); 		 // function
+console.log(typeof goldCoins());     // number
+console.log(typeof goldCoins.owner); // string
+

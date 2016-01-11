@@ -37,3 +37,4 @@ Table of Contents
   - Value and Types
   - Objects
   - Arrays
+  - Functions
