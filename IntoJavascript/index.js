@@ -60,3 +60,18 @@ console.log(typeof goldCoins); 		 // function
 console.log(typeof goldCoins());     // number
 console.log(typeof goldCoins.owner); // string
 
+// Coercion
+var a = "42";
+var b = Number( a );
+
+// Equality
+// "==" checks for value equality
+// "===" checks for both value and type equality. aka strict equality
+console.log(a == b);  // true ()
+console.log(a === b); // false
+
+// Best Practice
+// Whether to use == or ===
+// 1. If either value (aka side) in a comparison could be true, false, 0, "", []
+//    use ===
+// 2. Else it is safe to use ==
