@@ -41,4 +41,5 @@ Table of Contents
   - == Vs ===
   - Variables
   - Hoisting
-  
+  - Nested Scope
+  - Best practice: Always formally declare your variables

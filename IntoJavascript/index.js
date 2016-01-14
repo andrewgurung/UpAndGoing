@@ -96,3 +96,55 @@ function displaySilverCoins() {
   var silverCoins; // declaration is hoisted to top of displaySilverCoins()
 }
 console.log(silverCoins); // 100
+
+/* Nested Scope:
+  - A variable is available in that scope as well as any inner scope
+  - Trying to access a variable in a restricted scope: ReferenceError
+  - Trying to access an undeclared variable will create a globally scoped variable or Error (for "strict mode")
+*/
+function grandParent() {
+  var grandParentAge = 65;
+
+  function parent() {
+    var parentAge = 40;
+
+    function child() {
+      var childAge = 18;
+      console.log(grandParentAge, parentAge, childAge); // 65 40 18
+    }
+
+    child();
+    console.log(grandParentAge, parentAge); // 65 40
+  }
+
+  parent();
+  console.log(grandParentAge); // 65
+  /* console.log(parentAge);
+     ReferenceError: parentAge is not defined */
+};
+grandParent();
+
+
+/* Trying to access an undeclared variable will create a
+   globally scoped variable or Error (for "strict mode")
+   Best practice: Always formally declare your variables! */
+function undeclaredVariable() {
+  sample = 2;
+}
+undeclaredVariable();
+// sample is globally accessible outside of function undeclaredVariable()
+console.log(sample); // 2
+
+
+/* ES6 lets you declare block scoped variables with the 'let' keyword*/
+function printAll() {
+    var a = 1;
+    if (a >= 1) {
+        let b = 5;
+        while (b <= 10) {
+          console.log(b);
+          b++;
+        }
+    }
+}
+printAll();
