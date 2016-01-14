@@ -39,3 +39,6 @@ Table of Contents
   - Arrays
   - Functions
   - == Vs ===
+  - Variables
+  - Hoisting
+  

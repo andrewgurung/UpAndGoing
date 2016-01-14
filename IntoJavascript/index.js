@@ -75,3 +75,24 @@ console.log(a === b); // false
 // 1. If either value (aka side) in a comparison could be true, false, 0, "", []
 //    use ===
 // 2. Else it is safe to use ==
+
+/* Variables
+  Identifier must start with a-z, A-Z, $, or _
+  It can then contain any of those characters plus the numerals 0-9 */
+
+/* Hoisting
+   When a var declaration is conceptually "moved" to the top of its enclosing scope
+   Good: Function hoisting
+   Bad: Variable hoisting
+   - */
+var silverCoins = 100;
+
+//Works because displaySilverCoins() declaration is hoisted
+displaySilverCoins(); // 200
+
+function displaySilverCoins() {
+  silverCoins = 200;
+  console.log(silverCoins);
+  var silverCoins; // declaration is hoisted to top of displaySilverCoins()
+}
+console.log(silverCoins); // 100
