@@ -199,7 +199,7 @@ var anon2 = function hideMe() { };
 //  - Followed by (); to invoke the function expression immediately
 //  - Variables declared inside of IIFE will be function scoped
 var printMe = "Global";
-(function IIFE(){
+(function iife(){
   var printMe = "IIFE"; // 'printMe' variable is function scoped
   console.log(printMe);
 })(); // IIFE
@@ -209,7 +209,7 @@ console.log(printMe); // Global
 function iife() { } // function expression
 iife(); // function execution */
 
-var iifeAge = (function IIFE2(){
+var iifeAge = (function iife2(){
   return 100;
 })();
 console.log(iifeAge); // 100
