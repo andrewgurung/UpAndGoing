@@ -43,3 +43,6 @@ Table of Contents
   - Hoisting
   - Nested Scope
   - Best practice: Always formally declare your variables
+  - strict mode
+  - Closure
+  - Modules

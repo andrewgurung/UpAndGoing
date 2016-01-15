@@ -136,7 +136,7 @@ undeclaredVariable();
 console.log(sample); // 2
 
 
-/* ES6 lets you declare block scoped variables with the 'let' keyword*/
+/* ES6 lets you declare block scoped variables with the 'let' keyword
 function printAll() {
     var a = 1;
     if (a >= 1) {
@@ -147,4 +147,118 @@ function printAll() {
         }
     }
 }
-printAll();
+printAll(); */
+
+/* ES5 added "strict mode"
+  - Tightens rules
+  - Optimzed code for JS engine
+  - Can be opt for an individual function or entire file
+
+1. Function strict mode
+function foo() {
+  "use strict";
+  // this code is in strict mode
+  function bar() {
+    // this code is in strict mode
+  }
+}
+//this code is not in strict mode
+
+2. File strict mode
+"use strict";
+function foo() {
+    // this code is strict mode
+    function bar() {
+        // this code is strict mode
+    }
+}
+// this code is strict mode
+
+3. Strict mode disallows implicit auto-global variable declaration by omitting 'var'
+function foo() {
+  "use strict"; // turn on strict mode
+  a = 10;       // `var` missing, ReferenceError
+}
+foo(); */
+
+
+//  Function as values
+//  1. function name: anonymous
+//     variable name: anon1
+//     - Not preferred but extremely common
+var anon1 = function() { };
+// 2. function name: hideMe
+//    variable name: anon2
+//    - Preferred more
+var anon2 = function hideMe() { };
+
+
+// Immediately Invoked Function Expressions (IIFEs)
+//  - outer (..) surrounds function Expression (function IIFE(){ })
+//    so that JS doesn't treat it as function declaration
+//  - Followed by (); to invoke the function expression immediately
+//  - Variables declared inside of IIFE will be function scoped
+var printMe = "Global";
+(function IIFE(){
+  var printMe = "IIFE"; // 'printMe' variable is function scoped
+  console.log(printMe);
+})(); // IIFE
+console.log(printMe); // Global
+
+/* Similar to IIFE
+function iife() { } // function expression
+iife(); // function execution */
+
+var iifeAge = (function IIFE2(){
+  return 100;
+})();
+console.log(iifeAge); // 100
+
+
+//  Closure
+//  - A way to remember a function's scope (variables) even after function
+//    has finished running
+function advantage(extra) {
+  function add(input) {
+    return input + extra; // Closure on 'extra'
+  }
+  return add; // Return modified function with closure on 'extra'
+}
+
+var advantage10 = advantage(10); // Reference to add() which has closure on 10
+var advantage50 = advantage(50); // Reference to add() which has closure on 50
+
+console.log(advantage10(100)); // 110 (100 + 10)
+console.log(advantage50(100)); // 150 (100 + 50)
+
+
+/*  Modules
+    - Most common use of closure in JS is the module pattern
+    - Private implementation details (variables and functions) hidden from outside
+    - Public APIs accessible from outside */
+function User() {
+  // private variable
+  var username, password;
+
+  // private function
+  function doLogin(user, pass) {
+    username = user;
+    password = pass;
+  }
+
+  // object with one property which references to inner function 'doLogin'
+  var publicAPI = {
+    login: doLogin
+  };
+
+  // expose public API
+  return publicAPI;
+}
+
+// Doesn't require new User() as in other object oriented programming
+// Returns a new copy each time
+// Even after completing User(), we still have access to username and password variable
+var nedStark = User(); 
+nedStark.login("Ned Stark", "WinterIsComing");
+
+var jonSnow = User(); // returns a new copy each time
