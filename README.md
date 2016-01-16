@@ -44,5 +44,6 @@ Table of Contents
   - Nested Scope
   - Best practice: Always formally declare your variables
   - strict mode
+  - function as value
   - Closure
   - Modules
