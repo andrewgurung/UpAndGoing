@@ -47,3 +47,4 @@ Table of Contents
   - Function as value
   - Closure
   - Modules
+  - this identifier
