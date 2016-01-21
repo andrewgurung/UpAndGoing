@@ -47,4 +47,4 @@ Table of Contents
   - Function as value
   - Closure
   - Modules
-  - this identifier
+  - this identifier: Four rules for setting 'this'

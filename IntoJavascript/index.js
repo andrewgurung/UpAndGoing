@@ -258,7 +258,46 @@ function User() {
 // Doesn't require new User() as in other object oriented programming
 // Returns a new copy each time
 // Even after completing User(), we still have access to username and password variable
-var nedStark = User(); 
+var nedStark = User();
 nedStark.login("Ned Stark", "WinterIsComing");
 
 var jonSnow = User(); // returns a new copy each time
+
+
+/*  this identifier
+    To understand what 'this' points to, you have to examine how the function was called
+    In Javascript there are 4 ways of setting 'this'
+    1) function call
+       In non strict mode, this = global object
+       In strict mode, this = undefined
+       Eg: thisIdentifier();
+
+    2) method invocation
+       this = object that contains the method
+       Eg: lannister.displayHouseName();
+
+    3) call() method to invoke
+       this = object which is passed to call() as a parameter
+       Eg: displayHouseName.call(stark);
+
+    4) new operator
+       this = brand new empty object
+       Eg: new displayHouseName(); */
+function displayHouseName() {
+  console.log(this.houseName);
+}
+var houseName = "Unnamed House";
+
+var lannister = {
+  houseName: "Lannister",
+  displayHouseName: displayHouseName
+};
+
+var stark = {
+  houseName: "Stark"
+};
+
+displayHouseName();           // Unnamed House
+lannister.displayHouseName(); // Lannister
+displayHouseName.call(stark); // Stark
+new displayHouseName();       // undefined
