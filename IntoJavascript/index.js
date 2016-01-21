@@ -301,3 +301,17 @@ displayHouseName();           // Unnamed House
 lannister.displayHouseName(); // Lannister
 displayHouseName.call(stark); // Stark
 new displayHouseName();       // undefined
+
+/*  Prototypes
+    - Fallback mechanism to find a property on the object referenced by an object's prototype
+      var newObject = Object.create(samplePrototype)
+      will create a new object that will link to samplePrototype object as its prototype
+    - Fake inheritance  */
+var samplePrototype = {
+  words: "Our Blades Are Sharp"
+};
+
+var boltons = Object.create(samplePrototype);
+boltons.title = "Lord of the Dreadfort";
+console.log(boltons.title); // Lord of the Dreadfort
+console.log(boltons.words); // Our Blades Are Sharp

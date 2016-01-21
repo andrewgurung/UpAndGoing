@@ -48,3 +48,4 @@ Table of Contents
   - Closure
   - Modules
   - this identifier: Four rules for setting 'this'
+  - Prototypes
